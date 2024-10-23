@@ -6,6 +6,13 @@
 # Contributor: Łukasz Tuz <lukasz.tuz@gmail.com>
 
 _py="python"
+_py="python"
+_pyver="$( \
+  "${_py}" \
+    -V | \
+    awk \
+      '{print $2}')"
+_pymajver="${_pyver%.*}"
 _name=aiohappyeyeballs
 pkgname="${_py}-${_name}"
 pkgver=2.3.4
@@ -21,7 +28,7 @@ license=(
   PSF-2.0
 )
 depends=(
-  "${_py}"
+  "${_py}>=${_pymajver}"
 )
 makedepends=(
   git
