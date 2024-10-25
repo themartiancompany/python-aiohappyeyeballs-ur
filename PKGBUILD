@@ -13,6 +13,9 @@ _pyver="$( \
     awk \
       '{print $2}')"
 _pymajver="${_pyver%.*}"
+_pyminver="${_pymajver#*.}"
+_pynextver="${_pymajver%.*}.$(( \
+  ${_pyminver} + 1))"
 _name=aiohappyeyeballs
 pkgname="${_py}-${_name}"
 pkgver=2.3.4
@@ -29,6 +32,7 @@ license=(
 )
 depends=(
   "${_py}>=${_pymajver}"
+  "${_py}<${_pynextver}"
 )
 makedepends=(
   git

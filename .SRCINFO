@@ -11,25 +11,8 @@ pkgbase = python-aiohappyeyeballs
 	makedepends = python-build
 	makedepends = python-installer
 	makedepends = python-poetry-core
-	depends = python
-	source = git+https://github.com/aio-libs/aiohappyeyeballs.git#tag=v2.3.4
-	b2sums = a91db715db83854fd79edd793cbee20bf389d0f1f7ac46550b8f6b9cdb4cec56c0d5e8031f8624ff58f6498935bd87899c499c656c02537ea0c79722ec8180d9
-
-pkgname = python-aiohappyeyeballs
-pkgbase = python-aiohappyeyeballs
-	pkgdesc = Happy Eyeballs for asyncio
-	pkgver = 2.3.4
-	pkgrel = 1
-	url = https://github.com/aio-libs/aiohappyeyeballs
-	arch = any
-	license = PSF-2.0
-	checkdepends = python-pytest
-	checkdepends = python-pytest-asyncio
-	makedepends = git
-	makedepends = python-build
-	makedepends = python-installer
-	makedepends = python-poetry-core
 	depends = python>=3.12
+	depends = python<3.1
 	source = git+https://github.com/aio-libs/aiohappyeyeballs.git#tag=v2.3.4
 	b2sums = a91db715db83854fd79edd793cbee20bf389d0f1f7ac46550b8f6b9cdb4cec56c0d5e8031f8624ff58f6498935bd87899c499c656c02537ea0c79722ec8180d9
 
