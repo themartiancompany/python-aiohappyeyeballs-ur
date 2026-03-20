@@ -94,7 +94,7 @@ pkgname=(
 )
 pkgver=2.3.4
 _commit="c8fecf6d70dcd5ccc2d11b3e269dacea69f77052"
-pkgrel=5
+pkgrel=6
 _pkgdesc=(
   'Happy Eyeballs for asyncio.'
 )
