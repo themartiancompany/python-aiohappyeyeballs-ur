@@ -194,6 +194,14 @@ jobs:
             pip \
               install \
                 "flit-core"
+          /entrypoint.sh \
+            pip \
+              install \
+                "setuptools"
+          /entrypoint.sh \
+            pip \
+              install \
+                "poetry"
       # - name:
       #     Installs Rust.
       #   run: |

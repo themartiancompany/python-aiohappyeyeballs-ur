@@ -94,7 +94,7 @@ pkgname=(
 )
 pkgver=2.3.4
 _commit="c8fecf6d70dcd5ccc2d11b3e269dacea69f77052"
-pkgrel=3
+pkgrel=4
 _pkgdesc=(
   'Happy Eyeballs for asyncio.'
 )
@@ -249,18 +249,20 @@ package() {
         "${_site_packages_cmd[*]}")
   cd \
     "${_pkg}-${_tag}"
+  ls \
+    -lsh
   "${_py}" \
     -m \
       installer \
       --destdir="${pkgdir}" \
-      dist/*.whl
+      "dist/"*".whl"
   # Symlink license file
   install \
-    -d \
-      "${pkgdir}/usr/share/licenses/${pkgname}"
+    -vdm755 \
+      "${pkgdir}/usr/share/licenses/${pkgname}/"
   ln \
     -s \
-    "${_site_packages}/${_name}-${pkgver}.dist-info/LICENSE" \
+    "${_site_packages}/${_pkg}-${pkgver}.dist-info/LICENSE" \
     "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
