@@ -94,7 +94,7 @@ pkgname=(
 )
 pkgver=2.3.4
 _commit="c8fecf6d70dcd5ccc2d11b3e269dacea69f77052"
-pkgrel=4
+pkgrel=5
 _pkgdesc=(
   'Happy Eyeballs for asyncio.'
 )
@@ -260,10 +260,16 @@ package() {
   install \
     -vdm755 \
       "${pkgdir}/usr/share/licenses/${pkgname}/"
-  ln \
-    -s \
-    "${_site_packages}/${_pkg}-${pkgver}.dist-info/LICENSE" \
-    "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  if [[ "${_os}" == "Msys" ]]; then
+    cp \
+      "${_site_packages}/${_pkg}-${pkgver}.dist-info/LICENSE" \
+      "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  elif [[ "${_os}" != "Msys" ]]; then
+    ln \
+      -s \
+      "${_site_packages}/${_pkg}-${pkgver}.dist-info/LICENSE" \
+      "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  fi
 }
 
 # vim: ft=sh syn=sh et
